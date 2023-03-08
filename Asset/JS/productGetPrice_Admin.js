@@ -53,9 +53,13 @@ function getProducts() {
         productId = productList[i].id; //Định nghĩa productId cho hàm Update lại giá
 
         if (productList[i].goldPurity === "SJC") {
-          productList[i].price = productList[i].weight * arrayPriceUnit[0];
+          productList[i].price = Math.round(
+            productList[i].weight * arrayPriceUnit[0]
+          );
         } else {
-          productList[i].price = productList[i].weight * arrayPriceUnit[1];
+          productList[i].price = Math.round(
+            productList[i].weight * arrayPriceUnit[1]
+          );
         }
         apiUpdatePriceProduct(product, productId)
           .then((response) => {

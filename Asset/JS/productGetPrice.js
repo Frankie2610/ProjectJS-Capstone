@@ -53,9 +53,13 @@ function getProducts() {
       });
       for (let i = 0; i < productList.length; i++) {
         if (productList[i].goldPurity === "SJC") {
-          productList[i].price = productList[i].weight * arrayPriceUnit[0];
+          productList[i].price = Math.round(
+            productList[i].weight * arrayPriceUnit[0]
+          );
         } else {
-          productList[i].price = productList[i].weight * arrayPriceUnit[1];
+          productList[i].price = Math.round(
+            productList[i].weight * arrayPriceUnit[1]
+          );
         }
       }
       // renderProducts(productList);
