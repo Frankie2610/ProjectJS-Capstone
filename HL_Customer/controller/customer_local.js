@@ -1,4 +1,5 @@
-let cartArray = getProductsInCart(); //Mảng các sản phẩm giỏ hàng
+let cartArray = [];
+cartArray = getProductsInCart(); //Mảng các sản phẩm giỏ hàng
 storeProductsInCart();
 //Hàm hiển thị sản phẩm Vàng (trong dropdown) theo lựa chọn Khách hàng
 function chooseProducts() {
