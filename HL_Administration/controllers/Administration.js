@@ -4,7 +4,6 @@ let priceArray = [];
 function searchProduct() {
   // B1: DOM
   let search = getElement("#txtSearch").value;
-  console.log(search);
   // B2: Lọc những product có name khớp với giá trị search
   let newProductList = productList.filter((product) => {
     //Lọc ra mảng mới có product khớp điều kiện
