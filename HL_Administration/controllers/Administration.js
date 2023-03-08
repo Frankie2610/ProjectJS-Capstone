@@ -9,10 +9,10 @@ function searchProduct() {
   let newProductList = productList.filter((product) => {
     //Lọc ra mảng mới có product khớp điều kiện
     let name = product.name.toLowerCase();
-    console.log(name);
     search = search.toLowerCase();
     return product.name.indexOf(search) !== -1;
   });
+  renderProducts(newProductList);
 }
 
 //Hàm thêm mới sản phẩm
