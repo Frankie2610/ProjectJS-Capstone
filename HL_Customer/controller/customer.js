@@ -327,6 +327,7 @@ function addToCart(productChooseId) {
     //Tạo mới, thêm mới vào mảng giỏ hàng
     productChoose = productList[index];
     cartArray.push(productChoose);
+    productChoose.quantity = 1;
     apiCreateProductCart(productChoose)
       .then((response) => {
         renderTable(cartArray);
