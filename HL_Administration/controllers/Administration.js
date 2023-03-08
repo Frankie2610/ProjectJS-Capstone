@@ -1,5 +1,3 @@
-// Hàm thêm sản phẩm: DOM và gửi yêu cầu thêm sản phẩm tới API
-let priceArray = [];
 // Hàm tìm kiếm sản phẩm theo tên
 function searchProduct() {
   // B1: DOM
@@ -14,7 +12,7 @@ function searchProduct() {
   renderProducts(newProductList);
 }
 
-//Hàm thêm mới sản phẩm
+// Hàm thêm sản phẩm: DOM và gửi yêu cầu thêm sản phẩm tới API
 function createProduct() {
   const product = {
     name: getElement("#TenSP").value,
@@ -255,3 +253,16 @@ function validate() {
   }
   return isValid;
 }
+
+//Hàm tìm kiếm tên sản phẩm thông qua sự kiện type input
+
+// function lookUpProduct() {
+//   getElement("#txtSearch").addEventListener("input", (event) => {
+//     let newProductList = productList.filter((product) => {
+//       let name = product.name.toLowerCase();
+//       let search = event.target.value.toLowerCase();
+//       return product.name.indexOf(search) !== -1;
+//     });
+//     renderProducts(newProductList);
+//   });
+// }

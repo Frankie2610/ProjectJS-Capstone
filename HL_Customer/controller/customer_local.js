@@ -1,8 +1,9 @@
-// let cartArray = [];
 let cartArray = getProductsInCart(); //Mảng các sản phẩm giỏ hàng
+console.log(cartArray);
 storeProductsInCart();
 //Hàm hiển thị sản phẩm Vàng (trong dropdown) theo lựa chọn Khách hàng
 function chooseProducts() {
+  console.log(cartArray);
   let productType = +document.getElementById("productType").value;
   let arraySJC = []; //Mảng Vàng miếng SJC
   let arrayVangNhan24k = []; //Mảng Vàng nhẫn 24k
@@ -285,7 +286,9 @@ function getElement(selector) {
 // cartArray = [];
 function getProductsInCart() {
   const json = localStorage.getItem("cartArray");
-  if (!json) return [];
+  if (!json) {
+    return [];
+  }
 
   let cartArray = JSON.parse(json);
   for (let i = 0; i < cartArray.length; i++) {
@@ -299,7 +302,8 @@ function getProductsInCart() {
       productCart.size,
       productCart.img,
       productCart.description,
-      productCart.quantity
+      productCart.quantity,
+      productCart.codeProduct
     );
   }
   return cartArray;
