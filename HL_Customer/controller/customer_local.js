@@ -245,7 +245,7 @@ function decreaseQuantity(productCartId) {
 
 //productList: Mảng chứa sản phẩm của cửa hàng
 function addToCart(productCode) {
-  debugger;
+  // debugger;
   // let cartArray = [];
   let count = 0;
   let index = productList.findIndex((product) => {

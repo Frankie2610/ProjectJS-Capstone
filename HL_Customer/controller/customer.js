@@ -1,6 +1,5 @@
-let cartArray = []; //Mảng các sản phẩm khách hàng pick vào giỏ hàng
-getProductCart();
-
+let cartArray = getProductCart(); //Mảng các sản phẩm khách hàng pick vào giỏ hàng
+console.log(cartArray);
 //Hàm tick để chọn loại sp mà customer mong muốn
 function chooseProducts() {
   let productType = +document.getElementById("productType").value;
@@ -279,11 +278,12 @@ function decreaseQuantity(productCartId) {
 
 //Hàm lấy dữ liệu ban đầu trong giỏ hàng (Nếu có) và hiển thị ra giao diện
 function getProductCart() {
+  let cartArray = [];
   apiGetProductsCart()
     .then((response) => {
       if (!response.data) {
         //Trường hợp giỏ hàng ko có sản phẩm từ những lần lựa chọn trước nên mảng !response.data
-        return;
+        return [];
       }
       if (cartArray.length !== 0) {
         //Trường hợp giỏ hàng ko có sản phẩm từ những lần lựa chọn trước nên mảng !response.data và sau lần chọn đầu tiên thì đã có sản phẩm trong mảng
@@ -302,11 +302,12 @@ function getProductCart() {
     .catch((error) => {
       alert("API get product error");
     });
+  return cartArray;
 }
 
 //Hàm thêm sản phẩm vào giỏ hàng
 function addToCart(productChooseId) {
-  debugger;
+  // debugger;
   let count = 0; //Tạo cờ hiệu
   let productCart; //Sản phẩm trong giỏ hàng customer
   let productChoose; //Sản phẩm customer chọn để thêm vào giỏ
