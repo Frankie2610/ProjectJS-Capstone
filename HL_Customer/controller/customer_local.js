@@ -1,5 +1,5 @@
 let cartArray = getProductsInCart(); //Mảng các sản phẩm giỏ hàng
-console.log(cartArray);
+let productCart;
 storeProductsInCart();
 //Hàm hiển thị sản phẩm Vàng (trong dropdown) theo lựa chọn Khách hàng
 function chooseProducts() {
@@ -84,7 +84,7 @@ function renderProductsCustomer(products) {
                   >Click đây để xem giá</a
                 >
                 <button onclick="addToCart(${
-                  product.codeProduct
+                  product.id
                 })" class="btn-gold-blue">
                   Thêm vào giỏ hàng
                 </button>
@@ -239,22 +239,29 @@ function decreaseQuantity(productCartId) {
     return productCart.id == productCartId;
   });
   cartArray[index].quantity = +cartArray[index].quantity - 1;
-  if (cartArray.quantity === 0) {
-    cartArray.splice(index, 1);
+
+  //Hàm xóa sản phẩm ra khỏi mảng nếu số lượng bị giảm về 0
+  for (let i = 0; i < cartArray.length; i++) {
+    if (cartArray[i].quantity === 0) {
+      cartArray.splice(i, 1);
+    }
   }
+
   // renderTable(cartArray);
   storeProductsInCart();
 }
 
 //productList: Mảng chứa sản phẩm của cửa hàng
-function addToCart(productCode) {
+function addToCart(productId) {
+  console.log(productList);
+  debugger;
   let count = 0;
   let index = productList.findIndex((product) => {
-    return product.codeProduct == productCode;
+    return product.id == productId;
   });
   let productCart = productList[index]; //Sp muốn thêm vào giỏ
   for (let i = 0; i < cartArray.length; i++) {
-    if (productCart.codeProduct === cartArray[i].codeProduct) {
+    if (productCart.id === cartArray[i].id) {
       // getProductCart();
       cartArray[i].quantity = +cartArray[i].quantity + 1;
       count++;
