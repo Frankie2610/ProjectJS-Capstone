@@ -96,6 +96,8 @@ function updateProduct(productId) {
     .then((response) => {
       // renderProducts(response.data);  a
       alert("Sản phẩm đã được cập nhật");
+      getProducts(productList);
+      $("#myModal").modal("hide");
     })
     .catch((error) => {
       alert("Cập nhật sản phẩm thất bại");
