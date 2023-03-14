@@ -239,6 +239,9 @@ function decreaseQuantity(productCartId) {
     return productCart.id == productCartId;
   });
   cartArray[index].quantity = +cartArray[index].quantity - 1;
+  if (cartArray.quantity === 0) {
+    cartArray.splice(index, 1);
+  }
   // renderTable(cartArray);
   storeProductsInCart();
 }
@@ -284,6 +287,7 @@ function getElement(selector) {
 // cartArray = [];
 function getProductsInCart() {
   const json = localStorage.getItem("cartArray");
+  console.log(json);
   if (!json) {
     return [];
   }

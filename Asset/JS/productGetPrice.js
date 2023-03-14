@@ -62,6 +62,7 @@ function getProducts() {
           );
         }
       }
+      console.log(productList);
       // renderProducts(productList);
       // showKeyProduct(); //Hàm gọi mảng Vàng vỉ SJC ra giao diện
       renderProductsCustomer(productList);
